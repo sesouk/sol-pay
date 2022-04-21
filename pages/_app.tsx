@@ -7,7 +7,7 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <Layout>
       <Head>
-        <title>Cookies Inc</title>
+        <title>Jada's Mochi Donuts</title>
       </Head>
       <Component {...pageProps} />
     </Layout>
