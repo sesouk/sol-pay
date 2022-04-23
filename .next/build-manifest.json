@@ -30,11 +30,6 @@
       "static/chunks/main.js",
       "static/chunks/pages/shop.js"
     ],
-    "/shop/checkout": [
-      "static/chunks/webpack.js",
-      "static/chunks/main.js",
-      "static/chunks/pages/shop/checkout.js"
-    ],
     "/shop/confirmed": [
       "static/chunks/webpack.js",
       "static/chunks/main.js",

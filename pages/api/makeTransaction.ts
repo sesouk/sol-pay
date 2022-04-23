@@ -1,12 +1,17 @@
 import { createTransferCheckedInstruction, getAssociatedTokenAddress, getMint } from "@solana/spl-token"
 import { WalletAdapterNetwork } from "@solana/wallet-adapter-base"
-import { clusterApiUrl, Connection, PublicKey, Transaction, SystemProgram, LAMPORTS_PER_SOL } from "@solana/web3.js"
+import { clusterApiUrl, Connection, PublicKey, Transaction } from "@solana/web3.js"
 import { NextApiRequest, NextApiResponse } from "next"
 import { shopAddress, usdcAddress } from "../../lib/addresses"
 import calculatePrice from "../../lib/calculatePrice"
 
 export type MakeTransactionInputData = {
   account: string,
+}
+
+export type MakeTransactionGetResponse = {
+  label: string,
+  icon: string,
 }
 
 export type MakeTransactionOutputData = {
@@ -18,7 +23,14 @@ type ErrorOutput = {
   error: string
 }
 
-export default async function handler(
+function get(res: NextApiResponse<MakeTransactionGetResponse>) {
+  res.status(200).json({
+    label: 'Mochi Donuts',
+    icon: 'https://freesvg.org/img/1402337494.png'
+  })
+}
+
+async function post(
   req: NextApiRequest,
   res: NextApiResponse<MakeTransactionOutputData | ErrorOutput>
 ) {
@@ -90,5 +102,18 @@ export default async function handler(
 
     res.status(500).json({ error: 'error creating transaction', })
     return
+  }
+}
+
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse<MakeTransactionGetResponse | MakeTransactionOutputData | ErrorOutput>
+) {
+  if (req.method === 'GET') {
+    return get(res)
+  } else if (req.method === "POST") {
+    return await post(req, res)
+  } else {
+    return res.status(405).json({ error: "Method not allowed"})
   }
 }
