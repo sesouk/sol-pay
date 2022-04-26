@@ -20,7 +20,7 @@
   "../node_modules/@solana/wallet-adapter-sollet/lib/esm/base.mjs -> @project-serum/sol-wallet-adapter": {
     "id": "../node_modules/@solana/wallet-adapter-sollet/lib/esm/base.mjs -> @project-serum/sol-wallet-adapter",
     "files": [
-      "static/chunks/node_modules_project-serum_sol-wallet-adapter_dist_esm_index_js.js"
+      "static/chunks/node_modules_solana_wallet-adapter-sollet_node_modules_project-serum_sol-wallet-adapter_dist_-a0ad08.js"
     ]
   },
   "../node_modules/@solana/wallet-adapter-torus/lib/esm/adapter.mjs -> @toruslabs/solana-embed": {
